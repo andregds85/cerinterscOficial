@@ -59,6 +59,7 @@ $itensP = Checklist::where('id',$id)->get();
   </tbody>
   </table>
 
+
   <table class="table table-bordered">
   <tbody>
     <tr>
@@ -67,17 +68,20 @@ $itensP = Checklist::where('id',$id)->get();
            <b>Sexo: </b> {{$t->sexo }}<br>
            <b>CPF:</b>{{$t->cpf }}<br>
            <b>RG:</b>{{$t->rg }}<br>
+           <b>Orgão Emissor: </b> {{$t->orgaoEmissor }}<br>
       </td>
      <td>
-    <b>Orgão Emissor: </b> {{$t->orgaoEmissor }}<br>
+
+
+
     <b>Vacina Covid 19: </b> {{$t->vacina }}<br>
+    <b>Número de Doses: </b> {{$t->ndoses }}<br>
+
     <b> Estado: </b> {{$t->estado}}<br>
     <b> Gestante:</b> {{$t->gestante}} <br>
     <b> Quem recebe a gestante no local de destino:</b> {{$t->nasceDestino}} <br>
-
       </td>
    </tr>
-
   </tbody>
 </table>
 
@@ -157,17 +161,15 @@ $itensP = Checklist::where('id',$id)->get();
            <b>Dreno: </b> {{$t->dreno }}<br>
            <b>Tottqd: </b> {{$t->tottqd }}<br>
            <b>DVE: </b> {{$t->dve }}<br>
-
-
       </td>
       <td>
-           <b>Acesso Venoso Central: </b> {{$t->acessoVenosoCentral }}<br>
-           <b>Onde ? Acesso Venoso Central: </b> {{$t->avcOnde }}<br>
 
+          <b>Acesso Venoso Central: </b> {{$t->acessoVenosoCentral }}<br>
+           <b>Onde ? Acesso Venoso Central: </b> {{$t->avcOnde }}<br>
            <b>Acesso Venoso Periférico: </b> {{$t->acessoVenosoPeriferico }}<br>
            <b>Outros: </b> {{$t->outros }}<br>
 
-      </td>
+          </td>
     </tr>
   </tbody>
 </table>    
@@ -176,19 +178,16 @@ $itensP = Checklist::where('id',$id)->get();
 <table class="table table-bordered">
   <tbody>
     <tr>
-       <td align="center"><b>Suporte Hemodinâmico</b></td>
+       <td align="center"><b>Medicações em bomba de infusão</b></td>
     </tr>
   </tbody>
 </table>
 <table class="table table-bordered">
   <tbody>
   <tr>
-      <td><b>Drogas em Bic : </b>Vazão<br>
-         <b>NORADRENALINA:</b> ml/ h<br>
-         <b>Vasopressina:</b> ml/h<br>
-          </td>
+
          
-      <td><b>DOBUTAMINA:  ml/h  <br> Outros (Espceficar Drogas e Vazão ):</b>{{$t->drogas }} <br>
+      <td><b>Outros (Espceficar Drogas e Vazão ):</b>{{$t->drogas }} <br>
      <b>Sedação :</b>{{$t->sedacao }} <br>
      </td>
     </tr>

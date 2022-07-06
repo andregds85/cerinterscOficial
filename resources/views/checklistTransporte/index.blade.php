@@ -58,8 +58,12 @@ regform.vacina.focus();
 return false;
 }
 
-
-
+if(document.regform.ndoses.value=="") 
+{
+alert( "Preencha campo Número de doses da Vacina Covid 19 Corretamente ");
+regform.ndoses.focus();
+return false;
+}
 
 
 if(document.regform.estado.value=="") 
@@ -606,7 +610,7 @@ use App\Http\Controllers\ChecklistController;
 
                       <!--  dataSolicitacao -->
                        <div class="form-group row">
-                            <label for="dataSolicitacao" class="col-md-4 col-form-label text-md-right">{{ __('Data da Solicitacao') }}</label>
+                            <label for="dataSolicitacao" class="col-md-4 col-form-label text-md-right">{{ __('Data da Solicitação') }}</label>
                             <div class="col-md-6">
                                 <input id="dataSolicitacao" type="date" class="form-control @error('dataSolicitacao') is-invalid @enderror" name="dataSolicitacao" required autocomplete="dataSolicitacao">
                                 @error('dataSolicitacao')
@@ -733,6 +737,18 @@ use App\Http\Controllers\ChecklistController;
                         </div>
 
 
+                     <!--  Número de Doses  -->
+                       <div class="form-group row">
+                            <label for="ndoses" class="col-md-4 col-form-label text-md-right">{{ __('Número de Doses da Vacina ') }}</label>
+                            <div class="col-md-6">
+                                <input id="ndoses" type="text" class="form-control @error('ndoses') is-invalid @enderror" name="ndoses"  required autocomplete="ndoses">
+                                @error('ndoses')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
 
 
@@ -1246,59 +1262,12 @@ use App\Http\Controllers\ChecklistController;
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Suporte Hemodinâmico: Drogas em BIC') }}</div>
+                <div class="card-header">{{ __('Medicações em bomba de infusão') }}</div>
               
              
                 <div class="card-body">
 
               
-             
-     <table class="table">
-  <thead class="">
-    <tr>
-   
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>NORADRENALINA</td>
-      <td>VASOPRESINA</td>
-
-    </tr>
-    <tr>
-      <td>ml/h</td>
-      <td>ml/h</td>
-    </tr>
-
-  </tbody>
-</table>
-
-
-
-
-<table class="table">
-  <thead class="">
-    <tr>
-   
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-
-      <td>DOBUTAMINA</td>
-
-    </tr>
-    <tr>
-       <td>ml/h</td>
-    </tr>
-
-  </tbody>
-</table>
-
-
-
-
-
 
 
          

@@ -21,6 +21,7 @@ class checklist extends Model
       'rg',
       'orgaoEmissor',
       'vacina',
+      'ndoses',
       'estado',
       'diagnostico',
      
