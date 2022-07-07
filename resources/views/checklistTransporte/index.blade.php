@@ -159,28 +159,9 @@ return false;
 }
 
 
-if(document.regform.padrao.value=="") 
-{
-alert( "Selecione campo Padrão com Sim / Não ");
-regform.padrao.focus();
-return false;
-}
-
-if(document.regform.contato.value=="") 
-{
-alert( "Selecione campo contato com Sim / Não ");
-regform.contato.focus();
-return false;
-}
 
 
-if(document.regform.motivoContato.value==""  || document.regform.motivoContato.value.length < 11)   
 
-{
-alert( "Descreva o Motivo do Contato com mais de 12 Caracteres");
-regform.motivoContato.focus();
-return false;
-}
 
 
 if(document.regform.respiratoria.value=="") 
@@ -590,9 +571,7 @@ use App\Http\Controllers\ChecklistController;
 
 
 
-
-
-                          <!--  nome -->
+                     <!--  nome -->
                           <div class="form-group row">
                             <label for="nome" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}</label>
                             <div class="col-md-6">
@@ -967,31 +946,47 @@ use App\Http\Controllers\ChecklistController;
 
 
 
-         <!--  padrão -->
-         <div class="form-group row" required>
-                            <label for="padrao" class="col-md-4 col-form-label text-md-right">{{ __('Padrão') }}</label>
+
+
+
+
+                           <!--  padrão -->
+                            <div class="form-group row">
+                            <label for="padrao" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
                             <div class="col-md-6">
-                            <select id="padrao" class="form-control" name="padrao">
-                            <option selected></option>
-                            <option value="Sim">Sim</option>
-                            <option value="Não">Não</option>
-                            </select>    
-                            </div>
-                        </div>
+                            <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="padrao" id="padrao">
+                            <label class="custom-control-label" for="padrao">Padrão </label>
+                            </div> 
+                             </div>
+                             </div>
+               
+
+
+
+
+                           <!--  padrão -->
+                           <div class="form-group row">
+                            <label for="contato" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                            <div class="col-md-6">
+                            <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="contato" id="contato">
+                            <label class="custom-control-label" for="contato">Contato </label>
+                            </div> 
+                             </div>
+                             </div>
+               
+
+
+
+
+
+
+
+
 
           
-          <!--  contato -->
-         <div class="form-group row" required>
-                            <label for="contato" class="col-md-4 col-form-label text-md-right">{{ __('Contato') }}</label>
-                            <div class="col-md-6">
-                            <select id="contato" class="form-control" name="contato">
-                            <option selected></option>
-                            <option value="Sim">Sim</option>
-                            <option value="Não">Não</option>
-                            </select>    
-                            </div>
-                        </div>
-    
+
                         
 
 
