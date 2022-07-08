@@ -130,17 +130,42 @@ $itensP = Checklist::where('id',$id)->get();
 <table class="table table-bordered">
   <tbody>
   <tr>
-      <td><b>Padrão:</b>{{$t->padrao }} <br>
-          <b>Contato:</b>{{$t->contato }}<br>
-          <b>Motivo do Contato:</b>{{$t->motivoContato }}<br>
-          <b>Respiratória: </b> {{$t->respiratoria }}<br>
+      <td><b>Padrão:</b>
+
+
+      {{$t->padrao }} 
+      <?php $padrao=$t->padrao; 
+             if($padrao == "on"){
+              echo "(Sim)";
+            }     
+     
+      ?>
+
+      <br>
+          <b>Contato:</b>
+          {{$t->contato }}    
+          <?php 
+          $contato=$t->contato; 
+             if($contato =="on"){
+              echo "(Sim)";
+            }     
+         ?> <br>
+
+          <b>Respiratória: </b> {{$t->respiratoria}}     
+          <?php 
+          $respiratoria=$t->respiratoria; 
+             if($respiratoria =="on"){
+              echo "(Sim)";
+            }     
+      
+        ?> <br>
       </td>
      <td>
     
-    <b> Motivo Respiratória: </b> {{$t->motivoRespiratoria}}<br>
+    <b> Motivo da Precaução: </b> {{$t->motivoprec}}<br>
     <b> Suspeito de Covid: </b> {{$t->covid}}<br>
     <b> Método:</b> {{$t->metodo}}<br>
-    <b> Data:</b> {{$t->data}}</td>
+    <b> Data do Teste de Covid 19:</b> {{$t->data}}</td>
     </tr>
 
   </tbody>
@@ -160,12 +185,10 @@ $itensP = Checklist::where('id',$id)->get();
           <b>Svd:</b>{{$t->svd }}<br>
            <b>Dreno: </b> {{$t->dreno }}<br>
            <b>Tottqd: </b> {{$t->tottqd }}<br>
-           <b>DVE: </b> {{$t->dve }}<br>
       </td>
       <td>
 
-          <b>Acesso Venoso Central: </b> {{$t->acessoVenosoCentral }}<br>
-           <b>Onde ? Acesso Venoso Central: </b> {{$t->avcOnde }}<br>
+          <b>Acesso Venoso Central / Localização: </b> {{$t->acessoVenosoCentral }}<br>
            <b>Acesso Venoso Periférico: </b> {{$t->acessoVenosoPeriferico }}<br>
            <b>Outros: </b> {{$t->outros }}<br>
 
@@ -173,7 +196,6 @@ $itensP = Checklist::where('id',$id)->get();
     </tr>
   </tbody>
 </table>    
-
 
 <table class="table table-bordered">
   <tbody>

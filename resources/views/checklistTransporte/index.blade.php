@@ -159,30 +159,13 @@ return false;
 }
 
 
-
-
-
-
-
-if(document.regform.respiratoria.value=="") 
-{
- alert( "Selecione campo respiratoria com Sim / Não ");
-regform.respiratoria.focus();
-return false;
-}
-
-
-
-if(document.regform.motivoRespiratoria.value==""  || document.regform.motivoRespiratoria.value.length < 11)   
+if(document.regform.motivoprec.value==""  || document.regform.motivoprec.value.length < 11)   
 
 {
-alert( "Descreva o Motivo Respiratória com mais de 12 Caracteres");
-regform.motivoRespiratoria.focus();
+alert( "Descreva o Motivo da Precaução(Padrão, Contato, Respiratória com mais de 12 Caracteres");
+regform.motivoprec.focus();
 return false;
 }
-
-
-
 
 
 if(document.regform.covid.value=="") 
@@ -191,6 +174,9 @@ if(document.regform.covid.value=="")
 regform.covid.focus();
 return false;
 }
+
+
+
 
 if(document.regform.metodo.value=="") 
 {
@@ -236,26 +222,10 @@ regform.acessoVenosoCentral.focus();
 return false;
 } 
 
-if(document.regform.avcOnde.value=="") 
-{
- alert( "Preencha Campo Onde ? Acesso Venoso Central ");
-regform.avcOnde.focus();
-return false;
-} 
-
-
 if(document.regform.acessoVenosoPeriferico.value=="") 
 {
  alert( "Preencha Campo Acesso Venoso Periferico ");
 regform.acessoVenosoPeriferico.focus();
-return false;
-}
-
-
-if(document.regform.dve.value=="") 
-{
-alert( "Preencha Campo dve ");
-regform.dve.focus();
 return false;
 }
 
@@ -876,8 +846,8 @@ use App\Http\Controllers\ChecklistController;
                         </div>
 
 
-                        
-                           
+                      
+                       
                      <!--  hospitalDestino -->
                        <div class="form-group row">
                             <label for="hospitalDestino" class="col-md-4 col-form-label text-md-right">{{ __('Hospital de Destino') }}</label>
@@ -947,9 +917,6 @@ use App\Http\Controllers\ChecklistController;
 
 
 
-
-
-
                            <!--  padrão -->
                             <div class="form-group row">
                             <label for="padrao" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
@@ -965,7 +932,7 @@ use App\Http\Controllers\ChecklistController;
 
 
 
-                           <!--  padrão -->
+                           <!--  Contato -->
                            <div class="form-group row">
                             <label for="contato" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
                             <div class="col-md-6">
@@ -978,56 +945,29 @@ use App\Http\Controllers\ChecklistController;
                
 
 
-
-
-
-
-
-
-
-          
-
-                        
-
-
-
-            <!--  Motivo Contato -->
-                <div class="form-group row">
-                            <label for="motivoContato" class="col-md-4 col-form-label text-md-right">{{ __('Motivo do Contato') }}</label>
+                             
+                           <!--  Respiratoria -->
+                           <div class="form-group row">
+                            <label for="respiratoria" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
                             <div class="col-md-6">
-                            <textarea class="form-control @error('motivoContato') is-invalid @enderror" name="motivoContato"  required autocomplete="motivoContato" rows="3"></textarea>
-                                @error('motivoContato')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                  </div>
+                            <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="respiratoria" id="respiratoria">
+                            <label class="custom-control-label" for="respiratoria">Respiratoria </label>
+                            </div> 
+                             </div>
+                             </div>
                
 
 
-      
-         <!--  respiratoria -->
-         <div class="form-group row" required>
-                            <label for="respiratoria" class="col-md-4 col-form-label text-md-right">{{ __('Respiratoria') }}</label>
-                            <div class="col-md-6">
-                            <select id="respiratoria" class="form-control" name="respiratoria">
-                            <option selected></option>
-                            <option value="Sim">Sim</option>
-                            <option value="Não">Não</option>
-                            </select>    
-                            </div>
-                        </div>
+                              
+                
 
-
-                  
-
-            <!--  Motivo Respiratória -->
+            <!--  motivoprec  -->
                 <div class="form-group row">
-                            <label for="motivoRespiratoria" class="col-md-4 col-form-label text-md-right">{{ __('Motivo Respiratória') }}</label>
+                            <label for="motivoprec" class="col-md-4 col-form-label text-md-right">{{ __('Motivo da Precaução') }}</label>
                             <div class="col-md-6">
-                            <textarea class="form-control @error('motivoRespiratoria') is-invalid @enderror" name="motivoRespiratoria"  required autocomplete="motivoRespiratoria" rows="3"></textarea>
-                                @error('motivoRespiratoria')
+                            <textarea class="form-control @error('motivoprec') is-invalid @enderror" name="motivoprec"  required autocomplete="motivoprec" rows="3"></textarea>
+                                @error('motivoprec')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -1063,7 +1003,6 @@ use App\Http\Controllers\ChecklistController;
                             <option value="ANTIGENO">ANTIGENO</option>
                             <option value="PCR">PCR</option>
                             <option value="Não foi Testado">Não foi Testado</option>
-
                             </select>    
                             </div>
                         </div>
@@ -1071,11 +1010,11 @@ use App\Http\Controllers\ChecklistController;
 
 
                    <div class="container">
-                      <!--  dataSolicitacao -->
+                      <!--  Data do Teste de Covid -->
                         <div class="form-group row">
-                            <label for="data" class="col-md-4 col-form-label text-md-right">{{ __('Data ') }}</label>
+                            <label for="data" class="col-md-4 col-form-label text-md-right">{{ __('Data do Teste de Covid ') }}</label>
                             <div class="col-md-6">
-                            <input id="data" type="date" class="form-control @error('data') is-invalid @enderror" name="data" required autocomplete="data">
+                            <input id="data" type="text" class="form-control @error('data') is-invalid @enderror" name="data" required autocomplete="data">
 
                                 @error('data')
                                     <span class="invalid-feedback" role="alert">
@@ -1175,7 +1114,7 @@ use App\Http\Controllers\ChecklistController;
     
                    <!--  acessoVenosoCentral -->
                           <div class="form-group row">
-                            <label for="acessoVenosoCentral" class="col-md-4 col-form-label text-md-right">{{ __('Acesso Venoso Central') }}</label>
+                            <label for="acessoVenosoCentral" class="col-md-4 col-form-label text-md-right">{{ __('Acesso Venoso Central / Localização') }}</label>
                             <div class="col-md-6">
                                 <input id="acessoVenosoCentral" type="text" class="form-control @error('acessoVenosoCentral') is-invalid @enderror" name="acessoVenosoCentral"  required autocomplete="acessoVenosoCentral">
                                 @error('acessoVenosoCentral')
@@ -1187,18 +1126,6 @@ use App\Http\Controllers\ChecklistController;
                        </div>
 
 
-                   <!--  avcOnde -->
-                      <div class="form-group row">
-                            <label for="avcOnde" class="col-md-4 col-form-label text-md-right">{{ __('Onde ? Acesso Venoso Central') }}</label>
-                            <div class="col-md-6">
-                                <input id="avcOnde" type="text" class="form-control @error('avcOnde') is-invalid @enderror" name="avcOnde"  required autocomplete="avcOnde">
-                                @error('avcOnde')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                       </div>
 
 
                       <!--  acessoVenosoPeriferico -->
@@ -1207,20 +1134,6 @@ use App\Http\Controllers\ChecklistController;
                             <div class="col-md-6">
                                 <input id="acessoVenosoPeriferico" type="text" class="form-control @error('acessoVenosoPeriferico') is-invalid @enderror" name="acessoVenosoPeriferico"  required autocomplete="acessoVenosoPeriferico">
                                 @error('acessoVenosoPeriferico')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                       </div>
-
-
-                        <!--  dve -->
-                      <div class="form-group row">
-                            <label for="dve" class="col-md-4 col-form-label text-md-right">{{ __('DVE') }}</label>
-                            <div class="col-md-6">
-                                <input id="dve" type="text" class="form-control @error('dve') is-invalid @enderror" name="dve"  required autocomplete="dve">
-                                @error('dve')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

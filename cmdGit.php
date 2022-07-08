@@ -12,10 +12,10 @@ Adiciona todas as alterações
 git add --all
 
 
-
 Cria um commit com uma mensagem 
 
 git commit -m "commit message"
 
 
 git push -u origin master
+git push --force origin main

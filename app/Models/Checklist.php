@@ -43,10 +43,9 @@ class checklist extends Model
       /*333333333333333333333333333333333333333333333333333 */ 
       'padrao',
       'contato',
-      'motivoContato',
 
       'respiratoria',
-      'motivoRespiratoria',
+      'motivoprec',
 
       'covid',
       'metodo',
@@ -60,11 +59,9 @@ class checklist extends Model
       /*Dispositivos invasivos */ 
       /*fila 2 */ 
       'acessoVenosoCentral',
-      'avcOnde',
       'acessoVenosoPeriferico',
       /*Dispositivos invasivos */ 
       /*fila 3 */ 
-      'dve',
       'outros',
       
       
