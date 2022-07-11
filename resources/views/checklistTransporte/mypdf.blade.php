@@ -187,7 +187,6 @@ $itensP = Checklist::where('id',$id)->get();
            <b>Tottqd: </b> {{$t->tottqd }}<br>
       </td>
       <td>
-
           <b>Acesso Venoso Central / Localização: </b> {{$t->acessoVenosoCentral }}<br>
            <b>Acesso Venoso Periférico: </b> {{$t->acessoVenosoPeriferico }}<br>
            <b>Outros: </b> {{$t->outros }}<br>
@@ -207,14 +206,13 @@ $itensP = Checklist::where('id',$id)->get();
 <table class="table table-bordered">
   <tbody>
   <tr>
-
-         
-      <td><b>Outros (Espceficar Drogas e Vazão ):</b>{{$t->drogas }} <br>
+      <td><b>Espceficar Drogas e Vazão:</b>{{$t->drogas }} <br>
      <b>Sedação :</b>{{$t->sedacao }} <br>
      </td>
     </tr>
   </tbody>
 </table>    
+
 
 <table class="table table-bordered">
   <tbody>
@@ -227,8 +225,27 @@ $itensP = Checklist::where('id',$id)->get();
   <tbody>
   <tr>
       <td><b>Suporte O2:</b>{{$t->suporteo2 }} <br>
-          <b>Cateter:</b>{{$t->cateter }}<br>
-           <b>Mascara: </b> {{$t->mascara }}<br>
+          <b>Cateter: </b> {{$t->cateter}}     
+          <?php 
+          $cateter=$t->cateter; 
+             if($cateter =="on"){
+              echo "(Sim)";
+            }     
+     
+        ?> <br>    
+          
+         <b>Mascara: </b> {{$t->mascara}}     
+          <?php 
+          $mascara=$t->mascara; 
+             if($mascara =="on"){
+              echo "(Sim)";
+            }     
+      
+        ?> <br>    
+        
+        
+        
+       
            <b>outroSu: </b> {{$t->outroSu }}<br>
            <b>vm: </b> {{$t->vm }}<br>
            <b>Fio: </b> {{$t->fiO2 }}<br>
@@ -238,8 +255,7 @@ $itensP = Checklist::where('id',$id)->get();
           <b>Spo2:</b>{{$t->spO2 }}<br>
            <b>Prona:</b> {{$t->prona }}<br>
            <b>Volume:</b> {{$t->volume }}<br>
-
-           
+        
 
 
            <b>Classificação de Risco do Transporte: </b> {{$t->risco }}<br>
@@ -266,9 +282,7 @@ $itensP = Checklist::where('id',$id)->get();
            <b>SPO2: </b> {{$t->spo2c }}<br>
            <b>Glasgow: </b> {{$t->glasgow }}<br>
 
-    
-
-      </td>
+          </td>
       <td>
           <b>Temp: </b> {{$t->temp }}<br>
           <b>Peso :</b>{{$t->peso }} <br>

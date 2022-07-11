@@ -261,22 +261,6 @@ regform.suporteo2.focus();
 return false;
 }
 
-
-if(document.regform.cateter.value=="") 
-{
-alert( "Preencha cateter  ");
-regform.cateter.focus();
-return false;
-}
-
-if(document.regform.mascara.value=="") 
-{
-alert( "Preencha mascara  ");
-regform.mascara.focus();
-return false;
-}
-
-
 if(document.regform.outroSu.value=="") 
 {
 alert( "Preencha outros  ");
@@ -1049,10 +1033,7 @@ use App\Http\Controllers\ChecklistController;
               
              
 
-
-
-    
-                
+      
 
                     <!--  sng -->
                       <div class="form-group row">
@@ -1126,8 +1107,6 @@ use App\Http\Controllers\ChecklistController;
                        </div>
 
 
-
-
                       <!--  acessoVenosoPeriferico -->
                       <div class="form-group row">
                             <label for="acessoVenosoPeriferico" class="col-md-4 col-form-label text-md-right">{{ __('Acesso Venoso Periférico') }}</label>
@@ -1176,13 +1155,11 @@ use App\Http\Controllers\ChecklistController;
                 <div class="card-body">
 
               
-
-
-         
+     
 
           <!--  Outros Especificar Drogas e Vazão -->
           <div class="form-group row">
-                            <label for="diagnostico" class="col-md-4 col-form-label text-md-right">{{ __('Outros especificar drogas e vazão') }}</label>
+                            <label for="diagnostico" class="col-md-4 col-form-label text-md-right">{{ __('Especificar drogas e vazão') }}</label>
                             <div class="col-md-6">
                             <textarea class="form-control @error('drogas') is-invalid @enderror" name="drogas"  required autocomplete="drogas" rows="3"></textarea>
                                 @error('drogas')
@@ -1242,48 +1219,32 @@ use App\Http\Controllers\ChecklistController;
 
 
 
-
-
-
-
-
-
-
-                                            
                       <!--  cateter -->
-                      <div class="form-group row">
-                            <label for="cateter" class="col-md-4 col-form-label text-md-right">{{ __('Cateter') }}</label>
+                        <div class="form-group row">
+                            <label for="cateter" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
                             <div class="col-md-6">
-                                <input id="cateter" type="text" class="form-control @error('cateter') is-invalid @enderror" name="cateter"  required autocomplete="cateter">
-                                @error('cateter')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <label for="cateter" class="col-md-4 col-form-label text-md-right">{{ __('L/min') }}</label>
-
-                       </div>
+                            <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="cateter" id="cateter">
+                            <label class="custom-control-label" for="cateter">Cateter </label>
+                            </div> 
+                             </div>
+                             </div>
+               
 
 
-
-                                                  
-                      <!--  Mascara Reservatório -->
-                      <div class="form-group row">
-                            <label for="mascara" class="col-md-4 col-form-label text-md-right">{{ __('Mascara Reservatório') }}</label>
+                       <!--  Mascara -->
+                          <div class="form-group row">
+                            <label for="mascara" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
                             <div class="col-md-6">
-                                <input id="mascara" type="text" class="form-control @error('mascara') is-invalid @enderror" name="mascara"  required autocomplete="mascara">
-                                @error('cateter')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                       </div>
+                            <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="mascara" id="mascara">
+                            <label class="custom-control-label" for="mascara">Mascara Reservatório </label>
+                            </div> 
+                             </div>
+                             </div>
 
 
-
-
+                                                 
                       <!-- Outros -->
                       <div class="form-group row">
                             <label for="outroSu" class="col-md-4 col-form-label text-md-right">{{ __('Outros') }}</label>
