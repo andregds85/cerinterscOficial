@@ -224,7 +224,7 @@ $itensP = Checklist::where('id',$id)->get();
 <table class="table table-bordered">
   <tbody>
   <tr>
-      <td><b>Suporte O2:</b>{{$t->suporteo2 }} <br>
+      <td><b>Suporte O2</b> <br>
           <b>Cateter: </b> {{$t->cateter}}     
           <?php 
           $cateter=$t->cateter; 
@@ -245,17 +245,36 @@ $itensP = Checklist::where('id',$id)->get();
         
         
         
-       
-           <b>outroSu: </b> {{$t->outroSu }}<br>
-           <b>vm: </b> {{$t->vm }}<br>
+        <b>outroSu: </b> {{$t->outroSu}}     
+          <?php 
+          $outroSu=$t->outroSu; 
+             if($outroSu =="on"){
+              echo "(Sim)";
+            }     
+      
+        ?> <br>    
+
+
+          <b>vm: </b> {{$t->vm}}     
+          <?php 
+          $vm=$t->vm; 
+             if($vm =="on"){
+              echo "(Sim)";
+            }     
+      
+        ?> <br>      
+
            <b>Fio: </b> {{$t->fiO2 }}<br>
+           <b>Módulo Ventilatório: </b> {{$t->modVent }}<br>
+
       </td>
       <td>
-          <b>Peep:</b>{{$t->peep }} <br>
-          <b>Spo2:</b>{{$t->spO2 }}<br>
+
+           <b>Peep:</b>{{$t->peep }} <br>
+           <b>Spo2:</b>{{$t->spO2 }}<br>
            <b>Prona:</b> {{$t->prona }}<br>
            <b>Volume:</b> {{$t->volume }}<br>
-        
+           <b>Pressão:</b> {{$t->pressao }}<br>
 
 
            <b>Classificação de Risco do Transporte: </b> {{$t->risco }}<br>
@@ -263,6 +282,16 @@ $itensP = Checklist::where('id',$id)->get();
     </tr>
   </tbody>
 </table>   
+
+
+<table class="table table-bordered">
+  <tbody>
+  <tr>
+      <td><b>Especifique Outros Suporte:</b>{{$t->espOutroSu}} <br>
+      </td>
+    </tr>
+  </tbody>
+</table> 
 
 
 <table class="table table-bordered">
@@ -276,7 +305,7 @@ $itensP = Checklist::where('id',$id)->get();
   <tbody>
   <tr>
       <td><b>Disfusão Renal Aguda :</b>{{$t->aguda}} <br>
-          <b>Funcionalidade Prévia:</b>{{$t->funcionalidade }}<br>
+          <b>PPS:</b>{{$t->pps }}<br>
            <b>PA: </b> {{$t->pa}}<br>
            <b>FC: </b> {{$t->fc}}<br>
            <b>SPO2: </b> {{$t->spo2c }}<br>

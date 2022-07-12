@@ -176,8 +176,6 @@ return false;
 }
 
 
-
-
 if(document.regform.metodo.value=="") 
 {
  alert( "Selecione campo metodo com TR / PCR ");
@@ -237,14 +235,12 @@ regform.outros.focus();
 return false;
 }
 
-
 if(document.regform.drogas.value=="") 
 {
 alert( "Preencha drogas ");
 regform.drogas.focus();
 return false;
 }
-
 
 if(document.regform.sedacao.value==""  || document.regform.sedacao.value.length < 7)   
 {
@@ -254,24 +250,11 @@ return false;
 }
 
 
-if(document.regform.suporteo2.value=="") 
-{
-alert( "Preencha suporteo2 ");
-regform.suporteo2.focus();
-return false;
-}
+if(document.regform.espOutroSu.value==""  || document.regform.espOutroSu.value.length < 11)   
 
-if(document.regform.outroSu.value=="") 
 {
-alert( "Preencha outros  ");
-regform.outroSu.focus();
-return false;
-}
-
-if(document.regform.vm.value=="") 
-{
-alert( "Preencha vm  ");
-regform.vm.focus();
+alert( "Especifique Outro Suporte com mais de 12 Caracteres ou escreva Não tem outro Suporte");
+regform.espOutroSu.focus();
 return false;
 }
 
@@ -280,6 +263,15 @@ if(document.regform.fiO2.value=="")
 {
 alert( "Preencha FiO2  ");
 regform.fiO2.focus();
+return false;
+}
+
+
+if(document.regform.modVent.value==""  || document.regform.modVent.value.length < 3)   
+
+{
+alert( "Escreva o Módulo Ventilatório com mais de 2 Caracteres");
+regform.modVent.focus();
 return false;
 }
 
@@ -316,12 +308,32 @@ return false;
 }
 
 
+
+if(document.regform.pressao.value==""  || document.regform.pressao.value.length < 3)   
+
+{
+alert( "Escreva o Campo Pressão com mais de 2 Caracteres");
+regform.pressao.focus();
+return false;
+}
+
+
+
+
+
+
+
+
+
+
+
 if(document.regform.risco.value=="") 
 {
 alert( "Preencha a Classificação do Risco do Transporte  ");
 regform.risco.focus();
 return false;
 }
+
 
 if(document.regform.aguda.value=="") 
 {
@@ -330,10 +342,12 @@ regform.F.focus();
 return false;
 }
 
-if(document.regform.funcionalidade.value=="") 
+
+if(document.regform.pps.value==""  || document.regform.pps.value.length < 3)   
+
 {
-alert( "Preencha o Campo funcionalidade");
-regform.funcionalidade.focus();
+alert( "Escreva o Módulo Ventilatório com mais de 2 Caracteres");
+regform.pps.focus();
 return false;
 }
 
@@ -344,6 +358,7 @@ alert( "Preencha o Campo  PA");
 regform.pa.focus();
 return false;
 }
+
 
 if(document.regform.fc.value=="") 
 {
@@ -359,7 +374,6 @@ alert( "Preencha o Campo  spo2c");
 regform.spo2c.focus();
 return false;
 }
-
 
 
 if(document.regform.glasgow.value=="") 
@@ -1201,20 +1215,12 @@ use App\Http\Controllers\ChecklistController;
                 <div class="card-header">{{ __('Suporte Ventilatorio:') }}</div>
                    <div class="card-body">
 
-
-
-                   
+               
                    
                     <!--  suporteo2 -->
                    <div class="form-group row" required>
                             <label for="metodo" class="col-md-4 col-form-label text-md-right">{{ __('suporteo2 ') }}</label>
-                            <div class="col-md-6">
-                            <select id="suporteo2" class="form-control" name="suporteo2">
-                            <option selected></option>
-                            <option value="SIM">SIM</option>
-                            <option value="NÃO">NÃO</option>
-                            </select>    
-                            </div>
+                        
                         </div>
 
 
@@ -1229,8 +1235,7 @@ use App\Http\Controllers\ChecklistController;
                             </div> 
                              </div>
                              </div>
-               
-
+             
 
                        <!--  Mascara -->
                           <div class="form-group row">
@@ -1244,33 +1249,46 @@ use App\Http\Controllers\ChecklistController;
                              </div>
 
 
-                                                 
-                      <!-- Outros -->
-                      <div class="form-group row">
-                            <label for="outroSu" class="col-md-4 col-form-label text-md-right">{{ __('Outros') }}</label>
+                <!--  Outros -->
+                <div class="form-group row">
+                            <label for="outroSu" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
                             <div class="col-md-6">
-                                <input id="outroSu" type="text" class="form-control @error('outroSu') is-invalid @enderror" name="outroSu"  required autocomplete="outroSu">
-                                @error('outroSu')
+                            <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="outroSu" id="outroSu">
+                            <label class="custom-control-label" for="outroSu">Outros </label>
+                            </div> 
+                             </div>
+                             </div>
+
+                 
+                 
+
+                <!--  VM -->
+                <div class="form-group row">
+                            <label for="vm" class="col-md-4 col-form-label text-md-right">{{ __('') }}</label>
+                            <div class="col-md-6">
+                            <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="vm" id="vm">
+                            <label class="custom-control-label" for="vm">VM </label>
+                            </div> 
+                             </div>
+                             </div>            
+                             
+
+              
+
+                 <!--  Especifique Outro Suporte o2    -->
+                 <div class="form-group row">
+                            <label for="espOutroSu" class="col-md-4 col-form-label text-md-right">{{ __(' Especifique Outro Suporte o2  ') }}</label>
+                            <div class="col-md-6">
+                            <textarea class="form-control @error('espOutroSu') is-invalid @enderror" name="espOutroSu"  required autocomplete="historicoClinico" rows="3"></textarea>
+                                @error('espOutroSu')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                       </div>
-
-                    
-                 <!-- vm -->
-                  <div class="form-group row" required>
-                            <label for="vm" class="col-md-4 col-form-label text-md-right">{{ __('vm ') }}</label>
-                            <div class="col-md-6">
-                            <select id="vm" class="form-control" name="vm">
-                            <option selected></option>
-                            <option value="SIM">SIM</option>
-                            <option value="NÃO">NÃO</option>
-                            </select>    
-                            </div>
-                        </div>
-
+                     </div>
 
 
                      <!-- Fio2 -->
@@ -1286,8 +1304,22 @@ use App\Http\Controllers\ChecklistController;
                             </div>
                        </div>
 
+                     
+                      <!-- Modo Ventilatorio -->
+                       <div class="form-group row">
+                            <label for="modVent" class="col-md-4 col-form-label text-md-right">{{ __('Modo Ventilatório') }}</label>
+                            <div class="col-md-6">
+                                <input id="modVent" type="text" class="form-control @error('modVent') is-invalid @enderror" name="modVent"  required autocomplete="modVent">
+                                @error('modVent')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                       </div>
 
                        
+
                      <!-- peep -->
                       <div class="form-group row">
                             <label for="peep" class="col-md-4 col-form-label text-md-right">{{ __('PEEP') }}</label>
@@ -1302,8 +1334,7 @@ use App\Http\Controllers\ChecklistController;
                        </div>
 
 
-
-                     <!-- spO2 -->
+                      <!-- spO2 -->
                       <div class="form-group row">
                             <label for="spO2" class="col-md-4 col-form-label text-md-right">{{ __('SPO2') }}</label>
                             <div class="col-md-6">
@@ -1315,7 +1346,6 @@ use App\Http\Controllers\ChecklistController;
                                 @enderror
                             </div>
                        </div>
-
 
                        
                      <!-- prona -->
@@ -1348,6 +1378,21 @@ use App\Http\Controllers\ChecklistController;
 
 
                 
+                     <!-- Pressão -->
+                      <div class="form-group row">
+                            <label for="pressao" class="col-md-4 col-form-label text-md-right">{{ __('Pressão') }}</label>
+                            <div class="col-md-6">
+                                <input id="pressao" type="text" class="form-control @error('pressao') is-invalid @enderror" name="pressao"  required autocomplete="pressao">
+                                @error('pressao')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                       </div>
+
+
+
 
                     <!--  risco -->
                     <div class="form-group row" required>
@@ -1391,23 +1436,23 @@ use App\Http\Controllers\ChecklistController;
   
 
 
-                      <!--  Funcionalidade -->
-                    <div class="form-group row" required>
-                            <label for="aguda" class="col-md-4 col-form-label text-md-right">{{ __(' Funcionalidade Prévia') }}</label>
+                 
+
+                       <!--  pps -->
+                       <div class="form-group row">
+                            <label for="pps" class="col-md-4 col-form-label text-md-right">{{ __('PPS') }}</label>
                             <div class="col-md-6">
-                            <select id="funcionalidade" class="form-control" name="funcionalidade">
-                            <option selected></option>
-                            <option value="ECOG">ECOG</option>
-                            <option value="PPS">PPS</option>
-                            </select>    
+                                <input id="pps" type="text" class="form-control @error('cns') is-invalid @enderror" name="pps"  onkeypress="return onlynumber();" required autocomplete="pps">
+                                @error('pps')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-
-
+   
            
-                
-
-            
+                            
                       <!--  aguda -->
                       <div class="form-group row" required>
                             <label for="aguda" class="col-md-4 col-form-label text-md-right">{{ __(' Disfunção Renal Aguda') }}</label>
@@ -1535,7 +1580,6 @@ use App\Http\Controllers\ChecklistController;
 
 
 
-
         
             <!-- Outros  -->
             <div class="form-group row">
@@ -1567,7 +1611,6 @@ use App\Http\Controllers\ChecklistController;
                        </div>
 
 
-
                        
             <!-- hgt  -->
           <div class="form-group row">
@@ -1581,7 +1624,6 @@ use App\Http\Controllers\ChecklistController;
                                 @enderror
                             </div>
                        </div>
-
 
 
        <!--  Comorbidades  -->
@@ -1704,7 +1746,6 @@ $gmdata = gmdate("d/m/Y", time()-($ms));
 $gmhora = gmdate("H:i:s", time()-($ms)); 
 
 $today = date("H:i:s");
-
 ?>
 
 
@@ -1741,4 +1782,5 @@ $today = date("H:i:s");
     </div>
 </div>
 @endsection
+
 

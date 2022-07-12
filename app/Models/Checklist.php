@@ -25,7 +25,6 @@ class checklist extends Model
       'estado',
       'diagnostico',
      
-     
       'gestante',
       'nasceDestino',
 
@@ -64,32 +63,31 @@ class checklist extends Model
       /*fila 3 */ 
       'outros',
       
-      
-      
+            
       /*suporte hemodinamico */ 
       'drogas',
       'sedacao',
 
 
 
-
      /*suporte ventilatorio */ 
-     'suporteo2',
      'cateter',
      'mascara',
      'outroSu',
      'vm',
+     'espOutroSu',
      'fiO2',
+     'modVent',
      'peep',
      'spO2',
      'prona',
      'volume',
-
+     'pressao',
      'risco',
 
    /*informações complementares */ 
     'aguda',
-    'funcionalidade',
+    'pps',
     'pa',
     'fc',
     'spo2c',
