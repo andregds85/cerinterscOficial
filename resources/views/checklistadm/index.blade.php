@@ -85,9 +85,11 @@ return true;
             <td>{{$t->nome}}<br>{{$t->created_at}}</td>
 
 
- <td>  <a class="btn btn-info" href="{{ route('checklistadm.show',$t->id) }}">Vizualizar</a>
-
-<a class="btn btn-info" href="{{ url('checklistpdf',$t->id) }}">Imprimir PDF</a></td>
+ <!--           
+  <a class="btn btn-info" href="{{ route('checklistadm.show',$t->id) }}">Vizualizar</a>
+-->
+<td> 
+<a class="btn btn-info" href="{{ url('checklistpdf',$id=Crypt::encrypt($t->id)) }}">Imprimir PDF</a></td>
         </tr>
         @endforeach 
       </tbody>

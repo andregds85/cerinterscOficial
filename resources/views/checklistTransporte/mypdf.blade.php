@@ -4,8 +4,10 @@ use App\Http\Controllers\ChecklistController;
 
 $tabela = Checklist::all(); 
 
+$id1=Crypt::decrypt($id);
 
-$itensP = Checklist::where('id',$id)->get(); 
+
+$itensP = Checklist::where('id',$id1)->get(); 
 
 ?>
 

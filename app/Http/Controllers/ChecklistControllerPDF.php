@@ -10,7 +10,6 @@ use PDF;
 class ChecklistControllerPDF extends Controller
 {
 
-    
     function __construct()
     {
          $this->middleware('permission:administrador-list|administrador-create|administrador-edit|administrador-delete', ['only' => ['index','show']]);
@@ -20,13 +19,10 @@ class ChecklistControllerPDF extends Controller
     }
     
 
-
-
     public function index($id)
-    {
+      {
 
-
-       $data = [
+      $data = [
             'title' => 'Checklist Transporte Seguro',
             'date' => date('d/m/Y')
         ];
