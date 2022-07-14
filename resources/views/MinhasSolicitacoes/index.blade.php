@@ -27,7 +27,7 @@
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
       <thead>
         <tr>
-          <th>ID</th>
+          <th>PDF</th>
           <th>Nome</th>
           <th>CPF</th>
          </tr>
@@ -38,7 +38,7 @@
          <tr>
             <td>
 
-            <a class="btn btn-info" href="{{ url('checklistpdf',$id=Crypt::encrypt($t->id)) }}">Imprimir PDF</a></td>
+            <a class="btn btn-info" href="{{ url('checklistpdfs',$id=Crypt::encrypt($t->id)) }}">Imprimir PDF</a></td>
 
             <td>{{$t->nome}}</td>
 
