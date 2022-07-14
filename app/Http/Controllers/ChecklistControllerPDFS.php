@@ -19,6 +19,7 @@ class ChecklistControllerPDFS extends Controller
     }
    
 
+
     public function index($id)
     {
 

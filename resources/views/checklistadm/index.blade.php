@@ -83,8 +83,6 @@ return true;
          <tr>
             <td>{{$t->id}}</td>
             <td>{{$t->nome}}<br>{{$t->created_at}}</td>
-
-
  <!--           
   <a class="btn btn-info" href="{{ route('checklistadm.show',$t->id) }}">Vizualizar</a>
 -->

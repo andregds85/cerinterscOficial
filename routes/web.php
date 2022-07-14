@@ -22,6 +22,9 @@ use App\Http\Controllers\MinhasSolicitacoesController;
 use App\Http\Controllers\PainelController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\BuscaUsuarioController;
+use App\Http\Controllers\ChecklistControllerPDFS;
+
+
 
 
 
@@ -57,9 +60,10 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('sound',soundController::class);
     Route::resource('minhassolicitacoes',MinhasSolicitacoesController::class);
     Route::get('checklistpdf/{id}', [ChecklistControllerPDF::class, 'index']); 
+    Route::get('checklistpdfs/{id}', [ChecklistControllerPDFS::class, 'index']); 
 
-
-         
+ 
+        
     Route::get('pdf', [TerrestreControllerPDF::class, 'generatePDF']); 
     Route::get('aereoPdf', [aerioControllerPDF::class, 'generatePDF']); 
 

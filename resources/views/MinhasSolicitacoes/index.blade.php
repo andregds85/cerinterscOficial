@@ -28,19 +28,21 @@
       <thead>
         <tr>
           <th>ID</th>
-          <th>cpf</th>
           <th>Nome</th>
- 
-        </tr>
+          <th>CPF</th>
+         </tr>
       </thead>
 
       <tbody>
       @foreach ($itensP as $t)
          <tr>
-            <td>{{$t->id}}</td>
-            <td>{{$t->cpf}}</td>
+            <td>
+
+            <a class="btn btn-info" href="{{ url('checklistpdf',$id=Crypt::encrypt($t->id)) }}">Imprimir PDF</a></td>
 
             <td>{{$t->nome}}</td>
+
+            <td>{{$t->cpf}}</td>
         </tr>
         @endforeach 
       </tbody>
