@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 class ChecklistController  extends Controller
 {
   
+    
     function __construct()
     {
          $this->middleware('permission:solicitante-list|solicitante-create|solicitante-edit|solicitante-delete', ['only' => ['index','show']]);
@@ -37,6 +38,7 @@ class ChecklistController  extends Controller
         return view('monitoramento.index');
   
     }
+
 
 
 }

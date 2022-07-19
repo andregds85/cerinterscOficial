@@ -83,7 +83,7 @@ return false;
 
 
 
-if(document.regform.gestante.value=="") 
+Fif(document.regform.gestante.value=="") 
 {
 alert( "Selecione campo Gestante Sim / Não ");
 regform.gestante.focus();
